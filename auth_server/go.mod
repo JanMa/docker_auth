@@ -21,7 +21,7 @@ require (
 	github.com/syndtr/goleveldb v1.0.0
 	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
 	golang.org/x/net v0.0.0-20200520182314-0ba52f642ac2
-	google.golang.org/api v0.28.0
+	google.golang.org/api v0.29.0
 	gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
 	gopkg.in/fsnotify.v1 v1.4.7
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
