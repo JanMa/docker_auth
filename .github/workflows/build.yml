@@ -41,7 +41,9 @@ jobs:
 
     - name: Build
       working-directory: auth_server
-      run: go build -v .
+      run: |
+        make generate
+        make build
 
     - name: Test
       working-directory: auth_server
