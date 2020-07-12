@@ -3,7 +3,7 @@ module github.com/cesanta/docker_auth/auth_server
 go 1.12
 
 require (
-	cloud.google.com/go v0.44.3
+	cloud.google.com/go v0.60.0
 	github.com/a-urth/go-bindata v0.0.0-20180209162145-df38da164efc // indirect
 	github.com/cesanta/glog v0.0.0-20150527111657-22eb27a0ae19
 	github.com/dchest/uniuri v0.0.0-20160212164326-8902c56451e9
@@ -19,9 +19,9 @@ require (
 	github.com/schwarmco/go-cartesian-product v0.0.0-20180515110546-d5ee747a6dc9
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/syndtr/goleveldb v1.0.0
-	golang.org/x/crypto v0.0.0-20190820162420-60c769a6c586
-	golang.org/x/net v0.0.0-20190813141303-74dc4d7220e7
-	google.golang.org/api v0.9.0
+	golang.org/x/crypto v0.0.0-20191011191535-87dc89f01550
+	golang.org/x/net v0.0.0-20200520182314-0ba52f642ac2
+	google.golang.org/api v0.28.0
 	gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
 	gopkg.in/fsnotify.v1 v1.4.7
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
