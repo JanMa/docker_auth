@@ -19,7 +19,10 @@ ldap_auth:
   # set to true to allow insecure tls
   insecure_tls_skip_verify: false
   # set this to specify the ca certificate path
-  ca_certificate:
+  # ca_certificate:
+  # Use certificate to authenticate with the LDAP server
+  # client_certificate:
+  # client_key:
   # In case bind DN and password is required for querying user information,
   # specify them here. Plain text password is read from the file.
   bind_dn:

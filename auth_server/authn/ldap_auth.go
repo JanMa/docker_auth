@@ -39,6 +39,8 @@ type LDAPAuthConfig struct {
 	TLS                   string              `yaml:"tls,omitempty"`
 	InsecureTLSSkipVerify bool                `yaml:"insecure_tls_skip_verify,omitempty"`
 	CACertificate         string              `yaml:"ca_certificate,omitempty"`
+	ClientCertificate     string              `yaml:"client_certificate,omitempty"`
+	ClientKey             string              `yaml:"client_key,omitempty"`
 	Base                  string              `yaml:"base,omitempty"`
 	Filter                string              `yaml:"filter,omitempty"`
 	BindDN                string              `yaml:"bind_dn,omitempty"`
@@ -165,7 +167,9 @@ func (la *LDAPAuth) ldapConnection() (*ldap.Conn, error) {
 
 	tlsConfig := &tls.Config{InsecureSkipVerify: true}
 	if !la.config.InsecureTLSSkipVerify {
+		tlsConfig.InsecureSkipVerify = false
 		addr := strings.Split(la.config.Addr, ":")
+		tlsConfig.ServerName = addr[0]
 		if la.config.CACertificate != "" {
 			pool := x509.NewCertPool()
 			pem, err := ioutil.ReadFile(la.config.CACertificate)
@@ -176,9 +180,14 @@ func (la *LDAPAuth) ldapConnection() (*ldap.Conn, error) {
 			if !ok {
 				return nil, fmt.Errorf("Error loading CA File: Couldn't parse PEM in: %s", la.config.CACertificate)
 			}
-			tlsConfig = &tls.Config{InsecureSkipVerify: false, ServerName: addr[0], RootCAs: pool}
-		} else {
-			tlsConfig = &tls.Config{InsecureSkipVerify: false, ServerName: addr[0]}
+			tlsConfig.RootCAs = pool
+		}
+		if la.config.ClientCertificate != "" && la.config.ClientKey != "" {
+			cert, err := tls.LoadX509KeyPair(la.config.ClientCertificate, la.config.ClientKey)
+			if err != nil {
+				return nil, fmt.Errorf("Error loading Client Certificate: %s", err)
+			}
+			tlsConfig.Certificates = append( tlsConfig.Certificates, cert)
 		}
 	}
 
