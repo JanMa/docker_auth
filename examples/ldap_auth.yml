@@ -24,6 +24,7 @@ ldap_auth:
   # specify them here. Plain text password is read from the file.
   bind_dn:
   bind_password_file:
+  # bind_password:
   # User query settings. ${account} is expanded from auth request 
   base: o=example.com
   filter: (&(uid=${account})(objectClass=person))

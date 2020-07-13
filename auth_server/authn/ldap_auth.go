@@ -42,6 +42,7 @@ type LDAPAuthConfig struct {
 	Base                  string              `yaml:"base,omitempty"`
 	Filter                string              `yaml:"filter,omitempty"`
 	BindDN                string              `yaml:"bind_dn,omitempty"`
+	BindPassword          string              `yaml:"bind_password,omitempty"`
 	BindPasswordFile      string              `yaml:"bind_password_file,omitempty"`
 	LabelMaps             map[string]LabelMap `yaml:"labels,omitempty"`
 }
@@ -118,13 +119,18 @@ func (la *LDAPAuth) Authenticate(account string, password api.PasswordString) (b
 
 func (la *LDAPAuth) bindReadOnlyUser(l *ldap.Conn) error {
 	if la.config.BindDN != "" {
-		password, err := ioutil.ReadFile(la.config.BindPasswordFile)
-		if err != nil {
-			return err
+		var password_str string
+		if la.config.BindPasswordFile != "" {
+			password, err := ioutil.ReadFile(la.config.BindPasswordFile)
+			if err != nil {
+				return err
+			}
+			password_str = strings.TrimSpace(string(password))
+		} else {
+			password_str = la.config.BindPassword
 		}
-		password_str := strings.TrimSpace(string(password))
 		glog.V(2).Infof("Bind read-only user (DN = %s)", la.config.BindDN)
-		err = l.Bind(la.config.BindDN, password_str)
+		err := l.Bind(la.config.BindDN, password_str)
 		if err != nil {
 			return err
 		}
