@@ -3,16 +3,20 @@ module github.com/cesanta/docker_auth/auth_server
 go 1.12
 
 require (
-	cloud.google.com/go v0.60.0
-	github.com/a-urth/go-bindata v0.0.0-20180209162145-df38da164efc // indirect
+	cloud.google.com/go v0.60.0 // indirect
+	cloud.google.com/go/storage v1.8.0
 	github.com/cesanta/glog v0.0.0-20150527111657-22eb27a0ae19
 	github.com/dchest/uniuri v0.0.0-20160212164326-8902c56451e9
 	github.com/deckarep/golang-set v1.7.1
 	github.com/docker/distribution v2.7.1+incompatible
 	github.com/docker/libtrust v0.0.0-20160708172513-aabc10ec26b7
 	github.com/facebookgo/clock v0.0.0-20150410010913-600d898af40a // indirect
+	github.com/facebookgo/ensure v0.0.0-20200202191622-63f1cf65ac4c // indirect
+	github.com/facebookgo/freeport v0.0.0-20150612182905-d4adf43b75b9 // indirect
 	github.com/facebookgo/httpdown v0.0.0-20180706035922-5979d39b15c2
+	github.com/facebookgo/stack v0.0.0-20160209184415-751773369052 // indirect
 	github.com/facebookgo/stats v0.0.0-20151006221625-1b76add642e4 // indirect
+	github.com/facebookgo/subset v0.0.0-20200203212716-c811ad88dec4 // indirect
 	github.com/go-ldap/ldap v3.0.3+incompatible
 	github.com/go-redis/redis v6.15.8+incompatible
 	github.com/gorilla/mux v1.7.3 // indirect
