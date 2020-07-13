@@ -23,7 +23,7 @@ generate:
 	  ./mgo_session/... \
 	  ./server/...
 
-build: deps python-deps
+build: deps python-deps generate
 	CGO_ENABLED=0 go build -v --ldflags=--s -mod=vendor
 
 ca-certificates.crt:
