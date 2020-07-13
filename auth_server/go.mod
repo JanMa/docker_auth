@@ -5,7 +5,6 @@ go 1.12
 require (
 	cloud.google.com/go v0.60.0 // indirect
 	cloud.google.com/go/storage v1.8.0
-	github.com/a-urth/go-bindata v0.0.0-20180209162145-df38da164efc // indirect
 	github.com/cesanta/glog v0.0.0-20150527111657-22eb27a0ae19
 	github.com/dchest/uniuri v0.0.0-20160212164326-8902c56451e9
 	github.com/deckarep/golang-set v1.7.1
