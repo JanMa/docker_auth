@@ -13,29 +13,30 @@ all: build
 deps:
 	go get -v github.com/a-urth/go-bindata/go-bindata
 
-generate:
-	go generate \
-	  github.com/cesanta/docker_auth/auth_server \
-	  github.com/cesanta/docker_auth/auth_server/authn/... \
-	  github.com/cesanta/docker_auth/auth_server/authz/... \
-	  github.com/cesanta/docker_auth/auth_server/mgo_session/... \
-	  github.com/cesanta/docker_auth/auth_server/server/...
+python-deps:
+	pip install GitPython
 
-build:
-	CGO_ENABLED=0 go build -v --ldflags=--s
+generate:
+	go generate -v . \
+	  ./authn/... \
+	  ./authz/... \
+	  ./mgo_session/... \
+	  ./server/...
+
+build: deps python-deps
+	CGO_ENABLED=0 go build -v --ldflags=--s -mod=vendor
 
 ca-certificates.crt:
 	cp $(CA_BUNDLE) .
 
 build-release: ca-certificates.crt
 	docker run --rm -v $(PWD)/..:/src \
-	  $(BUILDER_IMAGE) sh -x -c "\
-	    apk update && apk add git make py3-pip && pip install GitPython && \
+	  $(BUILDER_IMAGE) sh -x -c \
+			"apk update && \
+			apk add git make py3-pip && \
 	    cd /src/auth_server && \
 	    umask 0 && \
-	    go install -v github.com/a-urth/go-bindata/go-bindata && \
-	    make generate && \
-	    CGO_ENABLED=0 go build -v --ldflags=--s"
+			make build"
 	@echo === Built version $$(cat version.txt) ===
 
 auth_server:
@@ -59,4 +60,4 @@ docker-push-%: docker-tag-%
 	docker push $(IMAGE):$*
 
 clean:
-	rm -rf auth_server vendor/*/*
+	rm -rf auth_server
