@@ -16,9 +16,11 @@ jobs:
           # use a personal access token so that the push will trigger new actions
           token: ${{ secrets.PAT_TOKEN }}
       - name: vendor
+        working-directory: auth_server
         run: |
           go mod vendor
       - name: tidy
+        working-directory: auth_server
         run: |
           go mod tidy
       - name: commit changes
