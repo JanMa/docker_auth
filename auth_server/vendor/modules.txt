@@ -29,7 +29,7 @@ github.com/facebookgo/httpdown
 github.com/facebookgo/stats
 # github.com/go-ldap/ldap v3.0.3+incompatible
 github.com/go-ldap/ldap
-# github.com/go-redis/redis v6.15.8+incompatible
+# github.com/go-redis/redis v6.15.9+incompatible
 github.com/go-redis/redis
 github.com/go-redis/redis/internal
 github.com/go-redis/redis/internal/consistenthash
