@@ -23,8 +23,8 @@ require (
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/syndtr/goleveldb v1.0.0
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
-	golang.org/x/net v0.0.0-20200813134508-3edf25e44fcc
-	google.golang.org/api v0.30.0
+	golang.org/x/net v0.0.0-20200822124328-c89045814202
+	google.golang.org/api v0.32.0
 	gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
 	gopkg.in/fsnotify.v1 v1.4.7
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
