@@ -3,7 +3,7 @@ module github.com/cesanta/docker_auth/auth_server
 go 1.12
 
 require (
-	cloud.google.com/go/storage v1.13.0
+	cloud.google.com/go/storage v1.14.0
 	github.com/cesanta/glog v0.0.0-20150527111657-22eb27a0ae19
 	github.com/dchest/uniuri v0.0.0-20160212164326-8902c56451e9
 	github.com/deckarep/golang-set v1.7.1
@@ -24,7 +24,7 @@ require (
 	github.com/syndtr/goleveldb v1.0.0
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
 	golang.org/x/net v0.0.0-20201224014010-6772e930b67b
-	google.golang.org/api v0.39.0
+	google.golang.org/api v0.40.0
 	gopkg.in/asn1-ber.v1 v1.0.0-20181015200546-f715ec2f112d // indirect
 	gopkg.in/fsnotify.v1 v1.4.7
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
