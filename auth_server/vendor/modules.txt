@@ -6,7 +6,7 @@ cloud.google.com/go/internal
 cloud.google.com/go/internal/optional
 cloud.google.com/go/internal/trace
 cloud.google.com/go/internal/version
-# cloud.google.com/go/storage v1.14.0
+# cloud.google.com/go/storage v1.15.0
 cloud.google.com/go/storage
 # github.com/cesanta/glog v0.0.0-20150527111657-22eb27a0ae19
 github.com/cesanta/glog

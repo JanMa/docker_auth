@@ -3,7 +3,7 @@ module github.com/cesanta/docker_auth/auth_server
 go 1.12
 
 require (
-	cloud.google.com/go/storage v1.14.0
+	cloud.google.com/go/storage v1.15.0
 	github.com/cesanta/glog v0.0.0-20150527111657-22eb27a0ae19
 	github.com/dchest/uniuri v0.0.0-20160212164326-8902c56451e9
 	github.com/deckarep/golang-set v1.7.1
